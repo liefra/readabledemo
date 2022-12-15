@@ -1,0 +1,29 @@
+<configuration>
+
+    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+        <withJansi>true</withJansi>
+        <!-- encoders are assigned the type
+             ch.qos.logback.classic.encoder.PatternLayoutEncoder by default -->
+        <encoder>
+            <pattern>%cyan(%d{HH:mm:ss.SSS}) %gray([%thread]) %highlight(%-5level) %magenta(%logger{36}) - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <appender name="ORACLE" class="io.micronaut.oraclecloud.logging.OracleCloudAppender">-->
+            <logId>ocid1.log.oc1.iad...</logId>
+            <!-- <blackListLoggerName>example.app.Application</blackListLoggerName> -->
+            <encoder class="ch.qos.logback.core.encoder.LayoutWrappingEncoder">
+                <layout class="ch.qos.logback.contrib.json.classic.JsonLayout">
+                    <jsonFormatter class="io.micronaut.oraclecloud.logging.OracleCloudJsonFormatter" />
+                </layout>
+            </encoder>
+        </appender>
+
+        <root level="info">
+            <appender-ref ref="ORACLE"/>
+        </root>
+
+    <root level="info">
+        <appender-ref ref="STDOUT" />
+    </root>
+</configuration>

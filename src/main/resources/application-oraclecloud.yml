@@ -1,0 +1,6 @@
+oci:
+  config:
+    instance-principal:
+      enabled: true
+  logging:
+    logId: ocid1.log.oc1.....
