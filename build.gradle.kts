@@ -24,7 +24,10 @@ dependencies {
     implementation("io.micronaut.oraclecloud:micronaut-oraclecloud-logging")
 
 
-    implementation("io.micronaut:micronaut-http-client")
+    // Dependency only needed to demo Publish error
+    implementation("io.micronaut.reactor:micronaut-reactor")
+    implementation("io.micronaut.reactor:micronaut-reactor-http-client")
+
     implementation("io.micronaut.serde:micronaut-serde-jackson")
     implementation("io.micronaut:micronaut-management")
     implementation("io.micronaut.kotlin:micronaut-kotlin-runtime")
